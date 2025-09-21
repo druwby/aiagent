@@ -8,11 +8,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+@tool
+def calculator(a:float, b: float) -> str:
+    """Useful for performing basic arithmetic calculations with numbers"""
+    print("Calculator tool has been called")
+    return f"The sum of {a} and {b} is {a + b}"
+
 def main():
     model = ChatOpenAI(model="openai/gpt-4o-mini", base_url="https://models.github.ai/inference", api_key=os.getenv("GITHUB_TOKEN"))
     ##model = OpenAI(temperature=0, base_url="https://models.github.ai/inference", api_key=os.getenv("GITHUB_TOKEN"))
 
-    tools = []
+    tools = [calculator]
     agent_executor = create_react_agent(model, tools)
 
     print("AI Assistant Activated. Type 'quit' to exit.")
