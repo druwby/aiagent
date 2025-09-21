@@ -1,0 +1,1 @@
+This is a WIP project, learning how to build an AI agent, equip it with tools, and create a functional well-equipped CLI helper agent.
